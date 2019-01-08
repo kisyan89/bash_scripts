@@ -1,0 +1,64 @@
+# Useful Bash files
+
+.bash_profile       Sourced by login shell
+.bashrc             Sourced by all shells
+.bash_aliases       Contains useful command aliases, generally sourced by ~/.bashrc
+.bash_history       Contains a history of your previous commands
+
+# Useful history commands
+
+!!                  Replay your last command
+!n                  Replay command #n in your history log
+!^                  Replaced with the first argument of the last command
+!$                  Replaced with the last part of your last command
+!*                  Replaced with the entire previous command, minus the program ($0)
+
+# Useful TAB commands
+
+[TAB][TAB]>         Show your directory structure
+STR[TAB][TAB]>      List all commands beginning with STR
+DIR[TAB][TAB]>      List all subdirectories in DIR
+$[TAB][TAB]>        List all shell variables
+
+# Vim
+
+Shift+V -> d        Copy line then delete
+yy                  Copy line
+pp                  Paste line
+dd                  Delete line
+:h                  Help
+                    Comment selected lines
+
+   # Go to the first line
+   Ctrl-V
+   # Go to the end line
+   Shift-I
+   # Type `#` or any other character used for commenting
+   ESC
+
+
+# oneliners
+
+# Find external IP address
+  curl l2.io/ip
+# List open files
+  lsof -n
+# Copy files with progress indicator
+  rsync --progress largefile.tar.gz other/location/
+# Find IP address for host
+  dig +short <URL|HOSTNAME> | egrep '[[:digit:]]{1,3}(.[[:digit:]]{1,3}){3}'
+# Sort processes by memory/CPU usage
+  ps aux | sort -nk <4/3>
+# Check architecture
+  getconf LONG_BIT
+# Watch command output
+  watch <COMMAND>
+# Run command after closing shell (killing the session)
+  nohup <COMMAND>
+# Repeatedly output an answer line for command's request
+  yes <ANSWER> | <COMMAND>
+# Create a file with a specific size (10M)
+  dd if=/dev/zero of=out.txt bs=1M count=10
+# Output of `ls` command is passed to `cp {}` via `xargs -i`
+  ls /etc/*.conf | xargs -i cp {} other/location
+
